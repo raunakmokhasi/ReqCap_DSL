@@ -1,0 +1,14 @@
+Objective: Login functionality on login page
+  Goal: Verification of Correct Login
+    Knowing Open the Chrome Browser and launch the Login page
+    If Enter Raunak as Username and Mokhasi as Password
+    && Click the login button
+    Do Log the user in and load Quotes page
+  Goal: Verification of Invalid Login
+    Knowing Open the Chrome Browser and launch the Login page
+    If Click the login button
+    Do Show invalid login alert
+  Goal: Verification of Get Quote button
+    Knowing Open the Chrome Browser and launch the Login page
+    If Click Get Quote button
+    Do Show quote in alert
