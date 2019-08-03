@@ -12,3 +12,6 @@ Objective: Login functionality on login page
     Knowing Open the Chrome Browser and launch the Login page
     If Click Get Quote button
     Do Show quote in alert
+  *security hello there
+  *project
+  *architecture what to do

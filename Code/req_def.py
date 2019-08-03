@@ -2,6 +2,8 @@
 @author = raunakmokhasi
 This program is the compiler for the ReqDef DSL.
 """
+import user_func_defs as user_func_defs
+
 function_name_list = []
 
 def read_file():
@@ -36,13 +38,17 @@ def identify_keywords(line, javaStepDefs_file):
     parses the string and identifies keywords
     """
     list_words = line.split()
-    if (list_words[0] == "Objective:"):
+    if (list_words[0].startswith("Objective")):
         javaStepDefs_file.write("// " + line + "\n\n")
     if (list_words[0] in ("Knowing", "If", "&&", "Then", "Else If")):
         function_name = create_function_name(list_words)
         result = check_duplicate_function(function_name)            
         if result == False:
             javaStepDefs_file.write("public void " + function_name + "(){}\n\n")
+    if (list_words[0].startswith("*")):
+        function_name = "interpret_" + list_words[0].replace("*","")
+        java_code_string = getattr(user_func_defs, function_name)()
+        javaStepDefs_file.write(java_code_string + "\n\n")
 
 def create_javaStepDefs_file(package):
     """
